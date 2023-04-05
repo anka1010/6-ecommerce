@@ -33,12 +33,39 @@
 
         <!-- CART & USER PROFILE -->
         <div class="user-menu">
-          <!-- CART -->
+          <!-- CART ICON -->
           <div class="user-menu__box">
             <svg class="user-menu__icon">
               <use href="img/sprite.svg#icon-cart"></use>
             </svg>
-            <span class="user-menu__notification">3</span>
+            <span class="user-menu__notification invisible">3</span>
+          </div>
+          <!-- CART BOX -->
+          <div class="cart">
+            <p class="cart__caption">Cart</p>
+            <p class="cart__items--empty">Your cart is empty.</p>
+            <div class="cart__items invisible">
+              <div class="cart__item">
+                <img
+                  class="cart__item-img"
+                  src="img/product/image-product-1-thumbnail.jpg"
+                  alt="Product thumbnail image"
+                />
+                <div>
+                  <p class="cart__item-name">Fall Limited Edition Sneakers</p>
+                  <div id="cart-item-price">
+                    $125.00 <span id="cart-item-count">x 1</span
+                    ><span class="cart__item-total" id="cart-item-total">
+                      $125.00</span
+                    >
+                  </div>
+                </div>
+                <svg class="cart__item-icon">
+                  <use href="img/sprite.svg#delete"></use>
+                </svg>
+              </div>
+            </div>
+            <button class="btn cta invisible">Checkout</button>
           </div>
 
           <!-- USER PROFILE -->
@@ -128,5 +155,7 @@
         </div>
       </div>
     </main>
+
+    <script src="src/js/script.js"></script>
   </body>
 </html>
