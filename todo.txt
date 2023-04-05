@@ -1,0 +1,22 @@
+TODO NOTE FIXME ???
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+CSS
+////////////////////////
+TODO 0. ______
+
+- RESPONSIVE: - Mobile: 375px, - Desktop: 1440px
+- README.MD
+- delete: /home/ann/Documents/web-projects/_my_projects/6-ecommerce/img/demo.html
+- line-height ???
+
+TODO 1. HEADER
+
+- cart: open cart box -> empty, full
+
+TODO 2. PRODUCT
+
+- <div class="product__info"> - remove ???
+- counter: count change +-
+- counter: change count manually, check legible input
+- Add to cart: change count in cart

@@ -1,0 +1,63 @@
+// CUSTOM PROPERTIES
+:root {
+  // COLOURS
+  --color-primary: hsl(26, 100%, 55%);
+  --color-primary-rgb: 255, 125, 26;
+  --color-primary-light: hsl(25, 100%, 94%);
+
+  --color-neutral-dark: hsl(220, 13%, 13%);
+  --color-neutral: hsl(219, 9%, 45%);
+  --color-neutral-light: hsl(220, 14%, 75%);
+  --color-neutral-light-1: hsl(223, 64%, 98%);
+  --color-white: hsl(0, 0%, 100%);
+  // - Black (with 75% opacity for lightbox background);
+  --color-black: hsl(0, 0%, 0%);
+
+  //   EFFECTS
+  --transition-hover: all 0.15s;
+  --shadow-primary: 0 2rem 3rem rgba(var(--color-primary-rgb), 0.3);
+}
+
+// FONTS
+.u-h1 {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.u-h2 {
+  font-size: 3rem;
+}
+
+.u-h3 {
+  font-size: 1.8rem;
+}
+
+// GENERAL
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 400;
+  color: var(--color-neutral);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-neutral);
+}
+
+ul {
+  list-style: none;
+}

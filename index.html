@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dist/main.css" />
+    <link rel="icon" href="img/favicon-32x32.png" />
+    <title>E-commerce product page</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <!-- LOGO -->
+      <a href="#!" class="logo"><img src="img/logo.svg" alt="Logo" /></a>
+
+      <!-- NAVIGATION -->
+      <nav class="nav">
+        <!-- MAIN MENU -->
+        <ul class="menu">
+          <li class="menu__item"><a href="#!">Collections</a></li>
+          <li class="menu__item"><a href="#!">Men</a></li>
+          <li class="menu__item"><a href="#!">Women</a></li>
+          <li class="menu__item"><a href="#!">About</a></li>
+          <li class="menu__item"><a href="#!">Contact</a></li>
+        </ul>
+
+        <!-- CART & USER PROFILE -->
+        <div class="user-menu">
+          <!-- CART -->
+          <div class="user-menu__box">
+            <svg class="user-menu__icon">
+              <use href="img/sprite.svg#icon-cart"></use>
+            </svg>
+            <span class="user-menu__notification">3</span>
+          </div>
+
+          <!-- USER PROFILE -->
+          <img
+            class="user-menu__profile"
+            src="img/user-avatar.png"
+            alt="User avatar"
+          />
+        </div>
+      </nav>
+    </header>
+
+    <!-- PRODUCT -->
+    <main class="product">
+      <!-- PRODUCT GALLERY -->
+      <div class="product__gallery">
+        <!-- PRODUCT MAIN IMAGE -->
+        <img
+          class="product__img"
+          src="img/product/image-product-1.jpg"
+          alt="Product photo"
+        />
+        <!-- PRODUCT THUMBNAILS -->
+        <div class="product__thmb">
+          <div class="product__thmb-item--current">
+            <img
+              src="img/product/image-product-1-thumbnail.jpg"
+              alt="Product thumbnail photo"
+            />
+          </div>
+          <div class="product__thmb-item">
+            <img
+              src="img/product/image-product-2-thumbnail.jpg"
+              alt="Product thumbnail photo"
+            />
+          </div>
+          <div class="product__thmb-item">
+            <img
+              src="img/product/image-product-3-thumbnail.jpg"
+              alt="Product thumbnail photo"
+            />
+          </div>
+          <div class="product__thmb-item">
+            <img
+              class="product__thmb-item"
+              src="img/product/image-product-4-thumbnail.jpg"
+              alt="Product thumbnail photo"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUCT INFORMATION -->
+      <div class="product__info">
+        <h3 class="u-h3 product__brand">Sneaker Company</h3>
+        <h1 class="u-h1 product__name">Fall Limited Sneakers</h1>
+        <p class="product__description">
+          This low profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they'll withstand everything
+          the weather can offer.
+        </p>
+        <div class="product__price-box">
+          <h2 class="u-h2 product__final-price">$125.00</h2>
+          <h3 class="u-h3 product__discount">50%</h3>
+        </div>
+        <h3 class="u-h3 product__price">$250.00</h3>
+        <div class="product__cart-btns">
+          <div class="product__counter">
+            <button class="product__btn-reduce">
+              <svg class="product__btn-icon">
+                <use href="/img/sprite.svg#icon-minus"></use>
+              </svg>
+            </button>
+            <p class="product__count">3</p>
+            <button class="product__btn-add">
+              <svg class="product__btn-icon">
+                <use href="/img/sprite.svg#icon-plus"></use>
+              </svg>
+            </button>
+          </div>
+          <button class="btn cta">
+            <svg class="cta-icon">
+              <use href="img/sprite.svg#icon-cart"></use>
+            </svg>
+            <span>Add to cart</span>
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
