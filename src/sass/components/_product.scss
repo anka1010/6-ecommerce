@@ -1,0 +1,142 @@
+// PRODUCT
+.product {
+  margin: 9rem auto 0;
+  max-width: 101.5rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  // GALLERY
+  &__gallery {
+    margin-right: 12.5rem;
+    margin-bottom: 13rem;
+
+    img {
+      object-fit: cover;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+  }
+
+  &__img {
+    width: 44.5rem;
+    height: 44.5rem;
+  }
+
+  &__thmb {
+    margin-top: 3.2rem;
+    display: flex;
+    justify-content: space-between;
+    &-item,
+    &-item--current {
+      width: 8.8rem;
+      height: 8.8rem;
+      border-radius: 1.3rem;
+      overflow: hidden;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+        transition: $transition-hover;
+      }
+    }
+
+    &-item:hover {
+      img {
+        filter: opacity(0.7);
+      }
+    }
+
+    &-item--current {
+      border: 2px solid $color-primary;
+      img {
+        filter: opacity(0.5);
+      }
+    }
+  }
+
+  // INFORMATION
+  &__info {
+    margin-top: 6.5rem;
+  }
+  &__brand {
+    color: $color-primary;
+    text-transform: uppercase;
+  }
+
+  &__name {
+    margin-top: 2.8rem;
+    color: $color-neutral-dark;
+  }
+
+  &__description {
+    margin-top: 5rem;
+  }
+
+  &__price-box {
+    margin-top: 3.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__final-price {
+    margin-right: 1.6rem;
+    color: $color-neutral-dark;
+  }
+
+  &__discount {
+    padding: 0.4rem 1.2rem;
+    color: $color-primary;
+    background-color: $color-primary-light;
+    border-radius: 0.6rem;
+  }
+
+  &__price {
+    margin-top: 1.4rem;
+    text-decoration: line-through;
+    color: $color-neutral-light;
+  }
+
+  // CART BUTTONS
+  &__cart-btns {
+    margin-top: 3.9rem;
+    display: flex;
+  }
+
+  &__counter {
+    margin-right: 1.6rem;
+    width: 15.6rem;
+    background-color: $color-neutral-light-1;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__btn-reduce,
+  &__btn-add {
+    height: 100%;
+    width: 4rem;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+  }
+
+  &__btn-icon {
+    height: 1rem;
+    width: 1rem;
+    fill: $color-primary;
+  }
+
+  &__count {
+    font-weight: 600;
+    color: $color-neutral-dark;
+  }
+
+  .cta {
+    box-shadow: $shadow-primary;
+  }
+}

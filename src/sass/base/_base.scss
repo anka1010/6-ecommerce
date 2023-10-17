@@ -1,0 +1,62 @@
+///////////////////////////////////
+// GENERAL
+body {
+  font-size: 1.6rem;
+  font-family: $font-primary;
+  font-weight: 400;
+  color: $color-neutral;
+}
+
+a {
+  color: $color-neutral;
+}
+
+///////////////////////////////////
+// UTILITIES
+
+// FONTS
+.u-h1 {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.u-h2 {
+  font-size: 3rem;
+}
+
+.u-h3 {
+  font-size: 1.8rem;
+}
+
+// VISIBILITY
+.invisible {
+  display: none;
+}
+
+///////////////////////////////////
+// CONTAINER
+.container {
+  max-width: $desktop;
+  margin: 0 auto;
+
+  // FIXME
+  &--sm {
+    max-width: calc($desktop - 3rem);
+  }
+}
+
+// LOGO
+.logo {
+  width: 13.8rem;
+  margin-right: 5.5rem;
+}
+
+// BUTTONS
+.btn {
+  font-weight: 600;
+  height: 5.6rem;
+  color: $color-white;
+  background-color: $color-primary;
+  border: none;
+  border-radius: 1rem;
+}
