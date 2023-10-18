@@ -1,90 +1,29 @@
 // NAVIGATION
 .nav {
-  height: 100%;
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
+  // display: flex;
 
-  .menu {
+  &__list {
     display: flex;
-
-    &__item {
-      border-bottom: 4px solid transparent;
-
-      display: flex;
-      align-items: center;
-      transition: $transition-hover;
-
-      &:not(:last-child) {
-        margin-right: 3.3rem;
-      }
-
-      &:hover {
-        border-bottom: 4px solid $color-primary;
-      }
-
-      a {
-        transition: $transition-hover;
-      }
-      a:hover {
-        color: $color-neutral-dark;
-      }
-    }
+    gap: 3rem;
+    align-items: center;
   }
 
-  .user-menu {
-    display: flex;
-    align-items: center;
-    position: relative;
+  &__item {
+    border-bottom: 4px solid transparent;
+    transition: $transition-hover;
+    padding-bottom: 3.6rem;
 
-    &__box {
-      padding: 1.4rem 0;
-      margin-right: 4rem;
-      cursor: pointer;
-      fill: $color-neutral;
-      position: relative;
-
-      &:hover {
-        fill: $color-neutral-dark;
-      }
-    }
-
-    &__box:hover + .cart,
-    .cart:hover {
-      transform: scaleY(1);
-    }
-
-    &__icon {
-      width: 2.1rem;
-      height: 2.1rem;
-      fill: inherit;
-      transition: $transition-hover;
-    }
-
-    &__notification {
-      font-size: 1.2rem;
-      font-weight: 600;
-      padding: 0 0.8rem;
-      border-radius: 10px;
-      color: $color-white;
-      position: absolute;
-      top: -6px;
-      right: -8px;
-      background-color: $color-primary;
-    }
-
-    &__profile {
-      width: 5rem;
-      height: 5rem;
-      border: 2px solid transparent;
-      border-radius: 50%;
-      display: block;
-      cursor: pointer;
-      transition: $transition-hover;
-
-      &:hover {
-        border: 2px solid $color-primary;
-      }
+    &:hover {
+      border-bottom: 4px solid $color-primary;
+      color: $color-neutral-dark;
     }
   }
 }
+
+// .nav__item {
+//   transition: $transition-hover;
+//   &:hover {
+//     border-bottom: 4px solid $color-primary;
+//     color: $color-neutral-dark;
+//   }
+// }

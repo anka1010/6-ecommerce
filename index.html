@@ -17,32 +17,49 @@
   <body>
     <!-- HEADER -->
     <header class="header">
-      <!-- LOGO -->
-      <a href="#!" class="logo"><img src="img/logo.svg" alt="Logo" /></a>
+      <div class="container">
+        <div class="header__row">
+          <!-- LOGO & NAVIGATION -->
+          <div class="header__row--left">
+            <!-- LOGO -->
+            <a href="#!" class="logo"><img src="img/logo.svg" alt="Logo" /></a>
 
-      <!-- NAVIGATION -->
-      <nav class="nav">
-        <!-- MAIN MENU -->
-        <ul class="menu">
-          <li class="menu__item"><a href="#!">Collections</a></li>
-          <li class="menu__item"><a href="#!">Men</a></li>
-          <li class="menu__item"><a href="#!">Women</a></li>
-          <li class="menu__item"><a href="#!">About</a></li>
-          <li class="menu__item"><a href="#!">Contact</a></li>
-        </ul>
-
-        <!-- CART & USER PROFILE -->
-        <div class="user-menu">
-          <!-- CART ICON -->
-          <div class="user-menu__box">
-            <svg class="user-menu__icon">
-              <use href="img/sprite.svg#icon-cart"></use>
-            </svg>
-            <span class="user-menu__notification invisible">3</span>
+            <!-- NAVIGATION -->
+            <nav class="nav">
+              <ul class="nav__list">
+                <li><a class="nav__item" href="#!">Collections</a></li>
+                <li><a class="nav__item" href="#!">Men</a></li>
+                <li><a class="nav__item" href="#!">Women</a></li>
+                <li><a class="nav__item" href="#!">About</a></li>
+                <li><a class="nav__item" href="#!">Contact</a></li>
+              </ul>
+            </nav>
           </div>
 
-          <!-- CART BOX -->
-          <!-- <div class="cart">
+          <!-- CART & USER PROFILE -->
+          <div class="header__row--right">
+            <!-- CART ICON -->
+            <button class="cart__btn">
+              <svg class="cart__icon">
+                <use href="img/sprite.svg#icon-cart"></use>
+              </svg>
+              <span class="cart__notification invisible">3</span>
+            </button>
+
+            <!-- USER PROFILE -->
+            <button class="user-profile__btn">
+              <img
+                class="user-profile__img"
+                src="img/user-avatar.png"
+                alt="User avatar"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CART BOX -->
+      <!-- <div class="cart">
             <p class="cart__caption">Cart</p>
             <p class="cart__items--empty">Your cart is empty.</p>
             <div class="cart__items invisible">
@@ -69,14 +86,7 @@
             <button class="btn cta invisible">Checkout</button>
           </div> -->
 
-          <!-- USER PROFILE -->
-          <img
-            class="user-menu__profile"
-            src="img/user-avatar.png"
-            alt="User avatar"
-          />
-        </div>
-      </nav>
+      <!-- USER PROFILE -->
     </header>
 
     <!-- PRODUCT -->

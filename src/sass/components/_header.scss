@@ -1,9 +1,25 @@
 // HEADER
 .header {
-  max-width: 111rem;
-  height: 11.3rem;
-  margin: 0 auto;
-  border-bottom: 1px solid $color-neutral-light;
-  display: flex;
-  align-items: center;
+  padding-top: 2.5rem;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // height: 10rem;
+
+    border-bottom: 1px solid $color-neutral-light;
+  }
+
+  &__row--left {
+    display: flex;
+    gap: 5.5rem;
+    align-items: center;
+
+    height: 100%;
+  }
+
+  &__row--right {
+    display: flex;
+    gap: 4rem;
+  }
 }

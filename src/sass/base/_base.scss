@@ -36,19 +36,17 @@ a {
 ///////////////////////////////////
 // CONTAINER
 .container {
-  max-width: $desktop;
+  max-width: 102rem; // 900px + padding-left 15px + padding-right 15px = 1020px
   margin: 0 auto;
 
-  // FIXME
   &--sm {
-    max-width: calc($desktop - 3rem);
+    max-width: 93rem;
   }
 }
 
 // LOGO
 .logo {
   width: 13.8rem;
-  margin-right: 5.5rem;
 }
 
 // BUTTONS
@@ -57,6 +55,5 @@ a {
   height: 5.6rem;
   color: $color-white;
   background-color: $color-primary;
-  border: none;
   border-radius: 1rem;
 }
