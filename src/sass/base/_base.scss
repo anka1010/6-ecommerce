@@ -38,6 +38,7 @@ a {
 .container {
   max-width: 102rem; // 900px + padding-left 15px + padding-right 15px = 1020px
   margin: 0 auto;
+  padding: 0 1.5rem;
 
   &--sm {
     max-width: 93rem;

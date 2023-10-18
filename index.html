@@ -21,6 +21,8 @@
         <div class="header__row">
           <!-- LOGO & NAVIGATION -->
           <div class="header__row--left">
+            <!-- MOBILE NAVIGATION -->
+
             <!-- LOGO -->
             <a href="#!" class="logo"><img src="img/logo.svg" alt="Logo" /></a>
 
@@ -91,79 +93,87 @@
 
     <!-- PRODUCT -->
     <main class="product">
-      <!-- PRODUCT GALLERY -->
-      <div class="product__gallery">
-        <!-- PRODUCT MAIN IMAGE -->
-        <img
-          class="product__img"
-          src="img/product/image-product-1.jpg"
-          alt="Product photo"
-        />
-        <!-- PRODUCT THUMBNAILS -->
-        <div class="product__thmb">
-          <div class="product__thmb-item--current">
-            <img
-              src="img/product/image-product-1-thumbnail.jpg"
-              alt="Product thumbnail photo"
-            />
-          </div>
-          <div class="product__thmb-item">
-            <img
-              src="img/product/image-product-2-thumbnail.jpg"
-              alt="Product thumbnail photo"
-            />
-          </div>
-          <div class="product__thmb-item">
-            <img
-              src="img/product/image-product-3-thumbnail.jpg"
-              alt="Product thumbnail photo"
-            />
-          </div>
-          <div class="product__thmb-item">
-            <img
-              class="product__thmb-item"
-              src="img/product/image-product-4-thumbnail.jpg"
-              alt="Product thumbnail photo"
-            />
-          </div>
-        </div>
-      </div>
+      <div class="container container--sm">
+        <section class="product__container">
+          <!-- ??? h2 headers for section, is h1 necessary ??? -->
 
-      <!-- PRODUCT INFORMATION -->
-      <div class="product__info">
-        <h3 class="u-h3 product__brand">Sneaker Company</h3>
-        <h1 class="u-h1 product__name">Fall Limited Sneakers</h1>
-        <p class="product__description">
-          This low profile sneakers are your perfect casual wear companion.
-          Featuring a durable rubber outer sole, they'll withstand everything
-          the weather can offer.
-        </p>
-        <div class="product__price-box">
-          <h2 class="u-h2 product__final-price">$125.00</h2>
-          <h3 class="u-h3 product__discount">50%</h3>
-        </div>
-        <h3 class="u-h3 product__price">$250.00</h3>
-        <div class="product__cart-btns">
-          <div class="product__counter">
-            <button class="product__btn-reduce">
-              <svg class="product__btn-icon">
-                <use href="/img/sprite.svg#icon-minus"></use>
-              </svg>
-            </button>
-            <p class="product__count">3</p>
-            <button class="product__btn-add">
-              <svg class="product__btn-icon">
-                <use href="/img/sprite.svg#icon-plus"></use>
-              </svg>
-            </button>
+          <!-- PRODUCT GALLERY -->
+          <div class="product__gallery">
+            <!-- PRODUCT MAIN IMAGE -->
+            <div class="product__img">
+              <img
+                src="img/product/image-product-1.jpg"
+                alt="Product photo"
+                id="current-image"
+              />
+            </div>
+
+            <!-- PRODUCT THUMBNAILS -->
+            <div class="product__thmb">
+              <div class="product__thmb-btn product__thmb-btn--current">
+                <img
+                  src="img/product/image-product-1-thumbnail.jpg"
+                  alt="Product thumbnail photo"
+                />
+              </div>
+              <div class="product__thmb-btn">
+                <img
+                  src="img/product/image-product-2-thumbnail.jpg"
+                  alt="Product thumbnail photo"
+                />
+              </div>
+              <div class="product__thmb-btn">
+                <img
+                  src="img/product/image-product-3-thumbnail.jpg"
+                  alt="Product thumbnail photo"
+                />
+              </div>
+              <div class="product__thmb-btn">
+                <img
+                  src="img/product/image-product-4-thumbnail.jpg"
+                  alt="Product thumbnail photo"
+                />
+              </div>
+            </div>
           </div>
-          <button class="btn cta">
-            <svg class="cta-icon">
-              <use href="img/sprite.svg#icon-cart"></use>
-            </svg>
-            <span>Add to cart</span>
-          </button>
-        </div>
+
+          <!-- PRODUCT INFORMATION -->
+          <div class="product__aside">
+            <h3 class="u-h3 product__brand">Sneaker Company</h3>
+            <h1 class="u-h1 product__name">Fall Limited Sneakers</h1>
+            <p class="product__description">
+              This low profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they'll withstand
+              everything the weather can offer.
+            </p>
+            <div class="product__price">
+              <h2 class="u-h2 product__price--final">$125.00</h2>
+              <h3 class="u-h3 product__discount">50%</h3>
+            </div>
+            <h3 class="u-h3 product__total">$250.00</h3>
+            <div class="product__cart-btns">
+              <div class="product__counter">
+                <button class="product__btn-reduce">
+                  <svg class="product__btn-icon">
+                    <use href="/img/sprite.svg#icon-minus"></use>
+                  </svg>
+                </button>
+                <p class="product__count">3</p>
+                <button class="product__btn-add">
+                  <svg class="product__btn-icon">
+                    <use href="/img/sprite.svg#icon-plus"></use>
+                  </svg>
+                </button>
+              </div>
+              <button class="btn cta">
+                <svg class="cta-icon">
+                  <use href="img/sprite.svg#icon-cart"></use>
+                </svg>
+                <span>Add to cart</span>
+              </button>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 

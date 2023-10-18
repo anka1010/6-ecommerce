@@ -136,6 +136,7 @@ a {
 .container {
   max-width: 102rem;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 .container--sm {
   max-width: 93rem;
@@ -160,13 +161,13 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 2.5rem;
   border-bottom: 1px solid hsl(220, 14%, 75%);
 }
 .header__row--left {
   display: flex;
   gap: 5.5rem;
   align-items: center;
-  height: 100%;
 }
 .header__row--right {
   display: flex;
@@ -179,9 +180,9 @@ a {
   align-items: center;
 }
 .nav__item {
-  border-bottom: 4px solid transparent;
-  transition: all 0.15s;
   padding-bottom: 3.6rem;
+  border-bottom: 4px solid transparent;
+  transition: all 0.2s;
 }
 .nav__item:hover {
   border-bottom: 4px solid hsl(26, 100%, 55%);
@@ -200,7 +201,7 @@ a {
   width: 2rem;
   height: 2rem;
   fill: inherit;
-  transition: all 0.15s;
+  transition: all 0.2s;
 }
 .cart__notification {
   font-size: 1.2rem;
@@ -227,7 +228,7 @@ a {
   box-shadow: 0.5rem 2rem 3rem rgba(0, 0, 0, 0.2);
   transform: scaleY(0);
   transform-origin: top;
-  transition: all 0.15s;
+  transition: all 0.2s;
   position: absolute;
   top: 8rem;
   right: -10rem;
@@ -279,7 +280,7 @@ a {
   border-radius: 50%;
   display: block;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.2s;
 }
 .user-profile__btn:hover {
   border: 2px solid hsl(26, 100%, 55%);
@@ -291,7 +292,7 @@ a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.2s;
 }
 .cta-icon {
   width: 1.8rem;
@@ -304,116 +305,41 @@ a {
 }
 
 .product {
-  margin: 9rem auto 0;
-  max-width: 101.5rem;
-  display: flex;
-  justify-content: space-between;
+  padding-top: 9rem;
 }
-.product__gallery {
-  margin-right: 12.5rem;
-  margin-bottom: 13rem;
-}
-.product__gallery img {
-  object-fit: cover;
-  border-radius: 1rem;
-  overflow: hidden;
+.product__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11rem;
 }
 .product__img {
-  width: 44.5rem;
-  height: 44.5rem;
-}
-.product__thmb {
-  margin-top: 3.2rem;
-  display: flex;
-  justify-content: space-between;
-}
-.product__thmb-item, .product__thmb-item--current {
-  width: 8.8rem;
-  height: 8.8rem;
-  border-radius: 1.3rem;
-  overflow: hidden;
-  cursor: pointer;
-}
-.product__thmb-item img, .product__thmb-item--current img {
-  width: 100%;
-  height: 100%;
-  transition: all 0.15s;
-}
-.product__thmb-item:hover img {
-  filter: opacity(0.7);
-}
-.product__thmb-item--current {
-  border: 2px solid hsl(26, 100%, 55%);
-}
-.product__thmb-item--current img {
-  filter: opacity(0.5);
-}
-.product__info {
-  margin-top: 6.5rem;
-}
-.product__brand {
-  color: hsl(26, 100%, 55%);
-  text-transform: uppercase;
-}
-.product__name {
-  margin-top: 2.8rem;
-  color: hsl(220, 13%, 13%);
-}
-.product__description {
-  margin-top: 5rem;
-}
-.product__price-box {
-  margin-top: 3.5rem;
-  display: flex;
-  align-items: center;
-}
-.product__final-price {
-  margin-right: 1.6rem;
-  color: hsl(220, 13%, 13%);
-}
-.product__discount {
-  padding: 0.4rem 1.2rem;
-  color: hsl(26, 100%, 55%);
-  background-color: hsl(25, 100%, 94%);
-  border-radius: 0.6rem;
-}
-.product__price {
-  margin-top: 1.4rem;
-  text-decoration: line-through;
-  color: hsl(220, 14%, 75%);
-}
-.product__cart-btns {
-  margin-top: 3.9rem;
-  display: flex;
-}
-.product__counter {
-  margin-right: 1.6rem;
-  width: 15.6rem;
-  background-color: hsl(223, 64%, 98%);
+  margin-bottom: 2.7rem;
   border-radius: 1rem;
   overflow: hidden;
+  cursor: zoom-in;
+}
+.product__thmb {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
-.product__btn-reduce, .product__btn-add {
-  height: 100%;
-  width: 4rem;
-  border: none;
-  background-color: inherit;
+.product__thmb-btn {
+  width: 7.8rem;
+  height: 7.8rem;
+  border-radius: 1.2rem;
+  overflow: hidden;
   cursor: pointer;
 }
-.product__btn-icon {
-  height: 1rem;
-  width: 1rem;
-  fill: hsl(26, 100%, 55%);
+.product__thmb-btn img {
+  transition: all 0.2s;
 }
-.product__count {
-  font-weight: 600;
-  color: hsl(220, 13%, 13%);
+.product__thmb-btn--current {
+  border: 2px solid hsl(26, 100%, 55%);
 }
-.product .cta {
-  box-shadow: 0 2rem 3rem rgba(255, 125, 26, 0.3);
+.product__thmb-btn--current img {
+  filter: opacity(0.5);
+}
+.product__thmb-btn:hover img {
+  filter: opacity(0.7);
 }
 
 /*# sourceMappingURL=main.css.map */
