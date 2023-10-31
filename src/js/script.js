@@ -70,6 +70,7 @@ const countInput = document.querySelector("#count");
 ///////////////////////////////////
 // --- GALLERY ---
 // CHANGING CURRENT PRODUCT IMAGE
+
 productThumbBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     // if (!btn.classList.contains("product__thmb-btn--current")) {

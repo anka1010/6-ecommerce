@@ -3,7 +3,7 @@
 TODO profile - show something on click
 
 ////////////////////////////////////
-// CART
+// GALLERY
 ////////////////////////////////////
 TODO click product image - zoom in product gallery
 
