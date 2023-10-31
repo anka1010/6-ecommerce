@@ -15,12 +15,11 @@
     display: flex;
     gap: 5.5rem;
     align-items: center;
-
-    // height: 100%;
   }
 
   &__row--right {
     display: flex;
     gap: 4rem;
+    align-items: center;
   }
 }

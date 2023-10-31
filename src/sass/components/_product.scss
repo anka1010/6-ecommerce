@@ -1,88 +1,3 @@
-//   // INFORMATION
-//   &__info {
-//     margin-top: 6.5rem;
-//   }
-//   &__brand {
-//     color: $color-primary;
-//     text-transform: uppercase;
-//   }
-
-//   &__name {
-//     margin-top: 2.8rem;
-//     color: $color-neutral-dark;
-//   }
-
-//   &__description {
-//     margin-top: 5rem;
-//   }
-
-//   &__price-box {
-//     margin-top: 3.5rem;
-//     display: flex;
-//     align-items: center;
-//   }
-
-//   &__final-price {
-//     margin-right: 1.6rem;
-//     color: $color-neutral-dark;
-//   }
-
-//   &__discount {
-//     padding: 0.4rem 1.2rem;
-//     color: $color-primary;
-//     background-color: $color-primary-light;
-//     border-radius: 0.6rem;
-//   }
-
-//   &__price {
-//     margin-top: 1.4rem;
-//     text-decoration: line-through;
-//     color: $color-neutral-light;
-//   }
-
-//   // CART BUTTONS
-//   &__cart-btns {
-//     margin-top: 3.9rem;
-//     display: flex;
-//   }
-
-//   &__counter {
-//     margin-right: 1.6rem;
-//     width: 15.6rem;
-//     background-color: $color-neutral-light-1;
-//     border-radius: 1rem;
-//     overflow: hidden;
-
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//   }
-
-//   &__btn-reduce,
-//   &__btn-add {
-//     height: 100%;
-//     width: 4rem;
-//     border: none;
-//     background-color: inherit;
-//     cursor: pointer;
-//   }
-
-//   &__btn-icon {
-//     height: 1rem;
-//     width: 1rem;
-//     fill: $color-primary;
-//   }
-
-//   &__count {
-//     font-weight: 600;
-//     color: $color-neutral-dark;
-//   }
-
-//   .cta {
-//     box-shadow: $shadow-primary;
-//   }
-// }
-
 .product {
   padding-top: 9rem;
 
@@ -96,7 +11,7 @@
   &__gallery {
   }
 
-  // FIXME different check image sizes
+  // FIXME check different image sizes
   &__img {
     margin-bottom: 2.7rem;
     border-radius: 1rem;
@@ -136,5 +51,94 @@
   }
 
   &__aside {
+    padding-top: 5.5rem;
+  }
+
+  &__brand {
+    color: $color-primary;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  &__name {
+    color: $color-neutral-dark;
+    margin-bottom: 4rem;
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+
+  &__price-box {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.2rem;
+  }
+
+  &__price--final {
+    color: $color-neutral-dark;
+  }
+
+  &__discount {
+    color: $color-primary;
+    background-color: $color-primary-light;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.6rem;
+  }
+
+  &__price {
+    text-decoration: line-through;
+    color: $color-neutral-light;
+    margin-bottom: 3.5rem;
+  }
+
+  &__add-to-cart {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__counter {
+    background-color: $color-neutral-light-1;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__btn,
+  &__count {
+    height: $control-height;
+    width: $control-height;
+  }
+
+  &__btn {
+    transition: $transition-hover;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      filter: opacity(70%);
+    }
+  }
+
+  &__btn-icon {
+    height: 1rem;
+    width: 1rem;
+    fill: $color-primary;
+  }
+
+  &__count {
+    font-weight: $bold;
+    color: $color-neutral-dark;
+    text-align: center;
+
+    &::placeholder {
+      color: $color-neutral-light;
+    }
   }
 }

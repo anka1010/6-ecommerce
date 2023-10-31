@@ -19,10 +19,11 @@
     <header class="header">
       <div class="container">
         <div class="header__row">
+          <!-- MOBILE NAVIGATION BUTTON -->
+          <!-- <div class="header__mibile-nav"></div> -->
+
           <!-- LOGO & NAVIGATION -->
           <div class="header__row--left">
-            <!-- MOBILE NAVIGATION -->
-
             <!-- LOGO -->
             <a href="#!" class="logo"><img src="img/logo.svg" alt="Logo" /></a>
 
@@ -40,15 +41,37 @@
 
           <!-- CART & USER PROFILE -->
           <div class="header__row--right">
-            <!-- CART ICON -->
-            <button class="cart__btn">
-              <svg class="cart__icon">
-                <use href="img/sprite.svg#icon-cart"></use>
-              </svg>
-              <span class="cart__notification invisible">3</span>
-            </button>
+            <div class="cart__box">
+              <!-- CART MENU ITEM -->
+              <button class="cart__btn">
+                <svg class="cart__icon">
+                  <use href="img/sprite.svg#icon-cart"></use>
+                </svg>
+                <span
+                  class="cart__notification invisible"
+                  id="cart-notification"
+                  >&nbsp;</span
+                >
+              </button>
 
-            <!-- USER PROFILE -->
+              <!-- CART -->
+              <div class="cart">
+                <p class="cart__caption">Cart</p>
+
+                <div class="cart__container">
+                  <p class="cart__empty" id="cart-empty">Your cart is empty.</p>
+                  <div class="cart__items invisible" id="cart-items">
+                    <!-- 
+                    CART ITEMS    
+                  --></div>
+                  <button class="btn btn--cta invisible" id="cart-btn-cta">
+                    Checkout
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- USER PROFILE MENU ITEM -->
             <button class="user-profile__btn">
               <img
                 class="user-profile__img"
@@ -59,44 +82,12 @@
           </div>
         </div>
       </div>
-
-      <!-- CART BOX -->
-      <!-- <div class="cart">
-            <p class="cart__caption">Cart</p>
-            <p class="cart__items--empty">Your cart is empty.</p>
-            <div class="cart__items invisible">
-              <div class="cart__item">
-                <img
-                  class="cart__item-img"
-                  src="img/product/image-product-1-thumbnail.jpg"
-                  alt="Product thumbnail image"
-                />
-                <div>
-                  <p class="cart__item-name">Fall Limited Edition Sneakers</p>
-                  <div id="cart-item-price">
-                    $125.00 <span id="cart-item-count">x 1</span
-                    ><span class="cart__item-total" id="cart-item-total">
-                      $125.00</span
-                    >
-                  </div>
-                </div>
-                <svg class="cart__item-icon">
-                  <use href="img/sprite.svg#delete"></use>
-                </svg>
-              </div>
-            </div>
-            <button class="btn cta invisible">Checkout</button>
-          </div> -->
-
-      <!-- USER PROFILE -->
     </header>
 
     <!-- PRODUCT -->
     <main class="product">
       <div class="container container--sm">
         <section class="product__container">
-          <!-- ??? h2 headers for section, is h1 necessary ??? -->
-
           <!-- PRODUCT GALLERY -->
           <div class="product__gallery">
             <!-- PRODUCT MAIN IMAGE -->
@@ -139,33 +130,33 @@
 
           <!-- PRODUCT INFORMATION -->
           <div class="product__aside">
-            <h3 class="u-h3 product__brand">Sneaker Company</h3>
-            <h1 class="u-h1 product__name">Fall Limited Sneakers</h1>
-            <p class="product__description">
-              This low profile sneakers are your perfect casual wear companion.
-              Featuring a durable rubber outer sole, they'll withstand
-              everything the weather can offer.
-            </p>
-            <div class="product__price">
-              <h2 class="u-h2 product__price--final">$125.00</h2>
-              <h3 class="u-h3 product__discount">50%</h3>
+            <h3 class="u-h3 product__brand" id="brand">Brand</h3>
+            <h1 class="u-h1 product__name" id="name">Name</h1>
+            <p class="product__description" id="description">Description</p>
+            <div class="product__price-box">
+              <p class="u-h2 product__price--final" id="final-price">$</p>
+              <p class="u-h3 product__discount" id="discount">%</p>
             </div>
-            <h3 class="u-h3 product__total">$250.00</h3>
-            <div class="product__cart-btns">
+            <p class="u-h3 product__price" id="price">$</p>
+
+            <!-- ADD TO CART -->
+            <div class="product__add-to-cart">
+              <!-- PRODUCT COUNTER -->
               <div class="product__counter">
-                <button class="product__btn-reduce">
+                <button class="product__btn" id="btn-decrease">
                   <svg class="product__btn-icon">
                     <use href="/img/sprite.svg#icon-minus"></use>
                   </svg>
                 </button>
-                <p class="product__count">3</p>
-                <button class="product__btn-add">
+                <input class="product__count" id="count" placeholder="0" />
+                <button class="product__btn" id="btn-increase">
                   <svg class="product__btn-icon">
                     <use href="/img/sprite.svg#icon-plus"></use>
                   </svg>
                 </button>
               </div>
-              <button class="btn cta">
+
+              <button class="btn btn--cta" id="btn-add">
                 <svg class="cta-icon">
                   <use href="img/sprite.svg#icon-cart"></use>
                 </svg>

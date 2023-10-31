@@ -15,9 +15,16 @@ $color-black: hsl(0, 0%, 0%);
 ///////////////////////////////////
 // FONTS
 $font-primary: "Kumbh Sans", sans-serif;
+$bold: 700;
+$regular: 400;
 
 ///////////////////////////////////
 //EFFECTS
 $transition-hover: all 0.2s;
 $shadow-primary: 0 2rem 3rem rgba($color-primary, 0.3);
+$shadow-primary--sm: 0 0.8rem 2rem rgba($color-primary, 0.3);
 $shadow-neutral: 0.5rem 2rem 3rem rgba($color-black, 0.2);
+
+///////////////////////////////////
+// CONTROLS (BUTTON, INPUT)
+$control-height: 4.9rem;

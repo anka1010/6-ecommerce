@@ -5,6 +5,7 @@ body {
   font-family: $font-primary;
   font-weight: 400;
   color: $color-neutral;
+  line-height: 1;
 }
 
 a {
@@ -16,21 +17,24 @@ a {
 
 // FONTS
 .u-h1 {
-  font-size: 5rem;
-  font-weight: 600;
+  font-size: 4rem;
+  font-weight: $bold;
+  line-height: 1.1;
 }
 
 .u-h2 {
   font-size: 3rem;
+  font-weight: $bold;
 }
 
 .u-h3 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  font-weight: $bold;
 }
 
 // VISIBILITY
 .invisible {
-  display: none;
+  display: none !important;
 }
 
 ///////////////////////////////////
@@ -52,9 +56,29 @@ a {
 
 // BUTTONS
 .btn {
-  font-weight: 600;
-  height: 5.6rem;
+  font-weight: $bold;
+  width: 24rem;
+  height: $control-height;
+  border-radius: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--cta {
   color: $color-white;
   background-color: $color-primary;
-  border-radius: 1rem;
+  box-shadow: $shadow-primary;
+  transition: $transition-hover;
+
+  &:hover,
+  &:active {
+    filter: opacity(70%);
+  }
+
+  &:active {
+    box-shadow: $shadow-primary--sm;
+    transform: translate(0, 3px);
+  }
 }

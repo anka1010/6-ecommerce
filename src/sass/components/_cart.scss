@@ -1,100 +1,135 @@
+// MENU BUTTON
+.cart__box {
+  position: relative;
+  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  &:hover .cart,
+  &:active .cart {
+    transform: scaleY(1) translate(-50%, 0%);
+    opacity: 1;
+  }
+
+  &:hover .cart__btn,
+  &:active .cart__btn {
+    fill: $color-neutral-dark;
+  }
+}
+
+.cart__btn {
+  fill: $color-neutral;
+  position: relative;
+}
+
+.cart__icon {
+  width: 2rem;
+  height: 2rem;
+  fill: inherit;
+  transition: $transition-hover;
+}
+
+.cart__notification {
+  font-size: 1.2rem;
+  font-weight: $bold;
+  padding: 0.1rem 0.7rem;
+  border-radius: 10px;
+  color: $color-white;
+  position: absolute;
+  top: -9px;
+  right: -8px;
+  background-color: $color-primary;
+}
+
 // CART
 .cart {
-  &__btn {
-    cursor: pointer;
-    position: relative;
-    fill: $color-neutral;
+  width: 36rem;
+  min-height: 23rem;
+  background-color: $color-white;
+  border-radius: 1rem;
+  box-shadow: $shadow-neutral;
+  position: absolute;
+  left: 50%;
+  top: 5rem;
+  opacity: 0;
+  transform: scaleY(0) translate(-50%, 0%);
+  transform-origin: top;
+  cursor: auto;
+  transition: $transition-hover;
 
-    &:hover {
-      fill: $color-neutral-dark;
+  &__container {
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  &__caption {
+    font-weight: $bold;
+    line-height: 7.2rem;
+    color: $color-neutral-dark;
+    padding-inline: 2rem;
+
+    border-bottom: 1px solid $color-neutral-light;
+  }
+
+  &__empty {
+    font-weight: $bold;
+    line-height: 18.8rem;
+    text-align: center;
+  }
+
+  &__items {
+    margin: 2rem 0;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 2rem;
+    margin-bottom: 2rem;
+
+    &-img {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 0.7rem;
     }
-  }
 
-  &__icon {
-    width: 2rem;
-    height: 2rem;
-    fill: inherit;
-    transition: $transition-hover;
-  }
+    &-text {
+      align-self: center;
+    }
 
-  &__notification {
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 0 0.8rem;
-    border-radius: 10px;
-    color: $color-white;
-    position: absolute;
-    top: -6px;
-    right: -8px;
-    background-color: $color-primary;
-  }
+    &-name {
+      margin-bottom: 0.8rem;
+    }
 
-  &__btn:hover + .cart,
-  .cart:hover {
-    transform: scaleY(1);
-  }
-
-  &__box {
-    width: 36rem;
-    min-height: 26rem;
-    padding-inline: 2.4rem;
-    padding-bottom: 3.2rem;
-    background-color: $color-white;
-    border-radius: 1rem;
-    box-shadow: $shadow-neutral;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: $transition-hover;
-
-    position: absolute;
-    top: 8rem;
-    right: -10rem;
-
-    &__caption {
-      font-weight: 600;
-      line-height: 7.2rem;
+    &-total {
+      font-weight: $bold;
       color: $color-neutral-dark;
-      border-bottom: 1px solid $color-neutral-light;
     }
 
-    &__items--empty {
-      font-weight: 600;
-      line-height: 18.8rem;
-      text-align: center;
-    }
+    &-delete-btn {
+      fill: $color-neutral-light;
+      cursor: pointer;
+      transition: $transition-hover;
 
-    &__items {
-      padding: 2.4rem 0;
-    }
-
-    &__item {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      &-img {
-        width: 5rem;
-        height: 5rem;
-        border-radius: 0.7rem;
-      }
-
-      &-name {
-        margin-bottom: 0.5rem;
-      }
-
-      &-total {
-        font-weight: 600;
-        color: $color-neutral-dark;
-      }
-
-      &-icon {
-        display: inline-block;
-        width: 1.4rem;
-        height: 1.7rem;
-        fill: $color-neutral-light;
-        background-color: $color-black;
+      &:hover {
+        fill: $color-neutral-light-1;
       }
     }
+
+    &-delete-icon {
+      display: inline-block;
+      width: 1.4rem;
+      height: 1.7rem;
+      fill: inherit;
+    }
+  }
+
+  .btn {
+    width: 100%;
+    box-shadow: none;
+    margin-bottom: 3rem;
   }
 }
