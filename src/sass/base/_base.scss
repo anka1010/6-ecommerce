@@ -1,6 +1,8 @@
 ///////////////////////////////////
 // GENERAL
 body {
+  position: relative;
+  height: 100vh;
   font-size: 1.6rem;
   font-family: $font-primary;
   font-weight: 400;

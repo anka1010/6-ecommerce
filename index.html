@@ -89,37 +89,52 @@
       <div class="container container--sm">
         <section class="product__container">
           <!-- PRODUCT GALLERY -->
-          <div class="product__gallery">
+          <div id="product-gallery">
             <!-- PRODUCT MAIN IMAGE -->
-            <div class="product__img">
-              <img
-                src="img/product/image-product-1.jpg"
-                alt="Product photo"
-                id="current-image"
-              />
-            </div>
+            <img
+              class="product__img"
+              src="img/product/image-product-1.jpg"
+              alt="Product photo"
+              id="current-image"
+            />
 
             <!-- PRODUCT THUMBNAILS -->
-            <div class="product__thmb">
-              <div class="product__thmb-btn product__thmb-btn--current">
+            <div class="product__thmbs">
+              <div
+                class="product__thmb product__thmb--current"
+                onclick="changeThumbnail(0, 'current-image', 'product-thmb')"
+                id="product-thmb"
+              >
                 <img
                   src="img/product/image-product-1-thumbnail.jpg"
                   alt="Product thumbnail photo"
                 />
               </div>
-              <div class="product__thmb-btn">
+              <div
+                class="product__thmb"
+                onclick="changeThumbnail(1, 'current-image', 'product-thmb')"
+                id="product-thmb"
+              >
                 <img
                   src="img/product/image-product-2-thumbnail.jpg"
                   alt="Product thumbnail photo"
                 />
               </div>
-              <div class="product__thmb-btn">
+              <div
+                class="product__thmb"
+                onclick="changeThumbnail(2, 'current-image', 'product-thmb')"
+                id="product-thmb"
+              >
                 <img
                   src="img/product/image-product-3-thumbnail.jpg"
                   alt="Product thumbnail photo"
                 />
               </div>
-              <div class="product__thmb-btn">
+              <div
+                class="product__thmb"
+                onclick="changeThumbnail(3, 'current-image', 'product-thmb')"
+                id="product-thmb"
+              >
                 <img
                   src="img/product/image-product-4-thumbnail.jpg"
                   alt="Product thumbnail photo"

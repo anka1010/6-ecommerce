@@ -49,7 +49,7 @@ const priceText = document.querySelector("#price");
 
 // --- GALLERY ---
 const currentImage = document.querySelector("#current-image");
-const productThumbBtns = document.querySelectorAll(".product__thmb-btn");
+const productGallery = document.querySelector("#product-gallery");
 
 // --- CART ---
 const cartNotification = document.querySelector("#cart-notification");
@@ -69,15 +69,76 @@ const countInput = document.querySelector("#count");
 // FUNCTIONS
 ///////////////////////////////////
 // --- GALLERY ---
-// CHANGING CURRENT PRODUCT IMAGE
+// ZOOM IN GALLERY
+currentImage.addEventListener("click", () => {
+  const galleryModal = document.createElement("div");
+  const backdrop = document.createElement("div");
+  const closeModalBtn = document.createElement("button");
+  const btnPrevImg = document.createElement("button");
+  const btnNextImg = document.createElement("button");
 
-productThumbBtns.forEach((btn) =>
-  btn.addEventListener("click", () => {
-    // if (!btn.classList.contains("product__thmb-btn--current")) {
-    //   btn.classList.toggle("product__thmb-btn--current");
-    // }
-  })
-);
+  const closeModal = function () {
+    document.body.removeChild(galleryModal);
+    document.body.removeChild(backdrop);
+  };
+
+  // Modal Gallery
+  galleryModal.innerHTML = productGallery.innerHTML;
+  galleryModal.classList.add("product__gallery--modal");
+  galleryModal
+    .querySelector("#current-image")
+    .setAttribute("id", "current-image--modal");
+
+  // Modal Gallery Thumbnails
+  const thmbs = galleryModal.querySelectorAll("#product-thmb");
+  thmbs.forEach((el) => el.setAttribute("id", "product-thmb--modal"));
+  thmbs.forEach((el, i) =>
+    el.setAttribute(
+      "onclick",
+      `changeThumbnail(${i}, 'current-image--modal', 'product-thmb--modal')`
+    )
+  );
+  document.body.appendChild(galleryModal);
+
+  // Modal Gallery Background
+  backdrop.classList.add("product__modal-background");
+  backdrop.addEventListener("click", () => closeModal());
+  document.body.appendChild(backdrop);
+
+  // Modal Gallery Close button
+  closeModalBtn.classList.add("close-btn");
+  closeModalBtn.innerHTML = `
+  <svg class="icon-close">
+    <use href="img/sprite.svg#icon-close"></use>
+  </svg>
+  `;
+  closeModalBtn.addEventListener("click", () => closeModal());
+  galleryModal.appendChild(closeModalBtn);
+
+  // Modal Gallery Previous / Next buttons FIXME
+  btnPrevImg.classList.add("prev-btn");
+  btnPrevImg.innerHTML = `
+  <svg class="icon-carousel">
+    <use href="img/sprite.svg#icon-previous"></use>
+  </svg>
+  `;
+  galleryModal.querySelector("#current-image--modal").appendChild(btnPrevImg);
+
+  // btnNextImg
+});
+
+// CHANGING CURRENT PRODUCT IMAGE
+const changeThumbnail = function (thmb, image, thmbs) {
+  const thumbnails = document.querySelectorAll(`#${thmbs}`);
+  thumbnails.forEach((el, i) => {
+    if (i === thmb) el.classList.add("product__thmb--current");
+    else el.classList.remove("product__thmb--current");
+  });
+
+  document
+    .querySelector(`#${image}`)
+    ?.setAttribute("src", `img/product/image-product-${thmb + 1}.jpg`);
+};
 
 // --- CART ----
 // FILL CART WITH ITEMS
@@ -102,7 +163,9 @@ const fillCart = function () {
           ${item.productName}
         </p>
         <div>
-          \$${item.price} <span id="cart-item-count">x ${item.quantity}</span>
+          \$${item.price.toFixed(2)} <span id="cart-item-count">x ${
+      item.quantity
+    }</span>
           <span class="cart__item-total" id="cart-item-total"
             >\$${(item.quantity * item.price).toFixed(2)}</span
           >

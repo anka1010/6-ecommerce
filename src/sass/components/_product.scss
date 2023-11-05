@@ -7,47 +7,119 @@
     gap: 11rem;
   }
 
-  // ???
-  &__gallery {
-  }
-
-  // FIXME check different image sizes
   &__img {
+    position: relative;
     margin-bottom: 2.7rem;
     border-radius: 1rem;
-    overflow: hidden;
 
     cursor: zoom-in;
   }
 
-  &__thmb {
+  &__thmbs {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2.7rem;
+  }
 
-    &-btn {
-      width: 7.8rem;
-      height: 7.8rem;
-      border-radius: 1.2rem;
-      overflow: hidden;
-      cursor: pointer;
+  &__thmb {
+    position: relative;
+    width: 7.8rem;
+    height: 7.8rem;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    cursor: pointer;
 
-      img {
-        transition: $transition-hover;
+    transition: filter 0.2s;
+
+    &::after {
+      content: "\A";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: $color-white;
+      opacity: 0;
+      transition: $transition-hover;
+    }
+
+    &:hover::after {
+      opacity: 0.3;
+    }
+
+    &--current {
+      outline: 2px solid $color-primary;
+      &::after {
+        opacity: 0.6;
       }
 
-      &--current {
-        border: 2px solid $color-primary;
-        img {
-          filter: opacity(0.5);
-        }
-      }
-
-      &:hover {
-        img {
-          filter: opacity(0.7);
-        }
+      &:hover::after {
+        opacity: 0.6;
       }
     }
+  }
+
+  // Modal Gallery
+  &__gallery--modal {
+    width: 49rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    .close-btn {
+      position: absolute;
+      top: -3.5rem;
+      right: 0;
+      fill: $color-white;
+      transition: $transition-hover;
+
+      &:hover {
+        fill: $color-primary;
+      }
+    }
+
+    .prev-btn,
+    .next-btn {
+      position: absolute;
+      width: 5rem;
+      height: 5rem;
+      top: 0;
+      left: 0;
+      // transform: translate(-50%, -50%);
+      background-color: $color-white;
+      border-radius: 50%;
+      fill: $color-neutral-dark;
+      transition: $transition-hover;
+      z-index: 15;
+
+      &:hover {
+        fill: $color-primary;
+      }
+    }
+
+    .icon-close,
+    .icon-carousel {
+      width: 2rem;
+      height: 2rem;
+      fill: inherit;
+    }
+  }
+
+  &__gallery--modal &__img {
+    cursor: auto;
+  }
+
+  &__modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-black;
+    filter: opacity(0.75);
+    z-index: 9;
   }
 
   &__aside {
