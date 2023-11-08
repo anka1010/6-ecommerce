@@ -3,22 +3,26 @@
 TODO profile - show something on click
 
 ////////////////////////////////////
-// GALLERY
+// NOTE GALLERY
 ////////////////////////////////////
 TODO click product image - zoom in product gallery - SMOOOTHLY
 
-////////////////////////////////////
-// CART
-////////////////////////////////////
-TODO Add to cart - popup/info if count > 10
+TODO slider - zoomed image
 
-TODO Add to cart - notification 'product added'
+TODO refactor thmbs click events (event propagation)
 
-TODO Add some action to Checkout button
+////////////////////////////////////
+// NOTE CART
+////////////////////////////////////
+TODO Add to cart - popup/info if count > 10 => toasts ???
+
+TODO Add to cart - notification 'product added' ???
+
+TODO Add some action to Checkout button => toast ???
 
 TODO DELETE item - add hint
 
 ////////////////////////////////////
-// RESPONSIVE
+// NOTE RESPONSIVE
 ////////////////////////////////////
 TODO mobile / media queries
