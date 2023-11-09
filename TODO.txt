@@ -2,16 +2,6 @@
 
 TODO profile - show something on click
 
-TODO errors with sprite.svg
-
-////////////////////////////////////
-// NOTE GALLERY
-////////////////////////////////////
-TODO click product image - zoom in product gallery - SMOOOTHLY
-
-TODO slider - zoomed image
-
-TODO refactor thmbs click events (event propagation)
 
 ////////////////////////////////////
 // NOTE CART
@@ -23,6 +13,7 @@ TODO Add to cart - notification 'product added' ???
 TODO Add some action to Checkout button => toast ???
 
 TODO DELETE item - add hint
+
 
 ////////////////////////////////////
 // NOTE RESPONSIVE

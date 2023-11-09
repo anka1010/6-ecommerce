@@ -69,6 +69,7 @@ const countInput = document.querySelector("#count");
 ///////////////////////////////////
 // FUNCTIONALITY
 ///////////////////////////////////
+
 // --- GALLERY ---
 // ZOOM IN GALLERY
 function showModalGallery() {
@@ -82,22 +83,59 @@ function showModalGallery() {
   // Modal Gallery block
   galleryModal.innerHTML = productGallery.innerHTML;
   galleryModal.classList.add("product__gallery--modal");
+
   const currentImageModal = galleryModal.querySelector("#current-image");
+  let currentThmb = productGallery.querySelector(".product__thmb--current")
+    ?.dataset.thmb;
 
   // Modal Gallery Thumbnails
   const productThmbsModal = galleryModal.querySelector("#product-thmbs");
-  productThmbsModal.addEventListener(
-    "click",
-    changeCurrentImage.bind({
-      img: currentImageModal,
-      thmbs: productThmbsModal,
-    })
-  );
+  const thmbsCount = productThmbsModal.querySelectorAll("[data-thmb]").length;
+  productThmbsModal.addEventListener("click", (e) => {
+    if (e.target.classList.contains("product__thmb")) {
+      changeCurrentImage(
+        currentImageModal,
+        Number(e.target.dataset.thmb),
+        productThmbsModal
+      );
+      currentThmb = Number(e.target.dataset.thmb);
+    }
+  });
 
-  // Close modal
+  //Previous button
+  btnPrevImg.classList.add("prev-btn");
+  btnPrevImg.innerHTML = `
+    <svg class="icon-carousel" width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11 1 3 9l8 8" fill="none" stroke-width="3"/>
+    </svg>
+    `;
+  btnPrevImg.addEventListener("click", () => {
+    currentThmb = currentThmb > 1 ? --currentThmb : 1;
+    changeCurrentImage(currentImageModal, currentThmb, productThmbsModal);
+  });
+
+  //Next button
+  btnNextImg.classList.add("next-btn");
+  btnNextImg.innerHTML = `
+  <svg class="icon-carousel" width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+    <path d="m2 1 8 8-8 8" stroke-width="3" fill="none"/>
+  </svg>
+    `;
+  btnNextImg.addEventListener("click", () => {
+    currentThmb = currentThmb < thmbsCount ? ++currentThmb : currentThmb;
+    changeCurrentImage(currentImageModal, currentThmb, productThmbsModal);
+  });
+
+  // Smooth close down Modal Gallery
   const closeModal = function () {
-    document.body.removeChild(galleryModal);
-    document.body.removeChild(backdrop);
+    galleryModal.style.visibility = "hidden";
+    galleryModal.style.opacity = "0";
+    backdrop.style.visibility = "hidden";
+    backdrop.style.opacity = "0";
+    setTimeout(() => {
+      document.body.removeChild(galleryModal);
+      document.body.removeChild(backdrop);
+    }, 200);
   };
 
   // Modal Gallery Background
@@ -107,59 +145,63 @@ function showModalGallery() {
   // Modal Gallery Close button
   closeModalBtn.classList.add("close-btn");
   closeModalBtn.innerHTML = `
-  <svg class="icon-close">
-    <use href="img/sprite.svg#icon-close"></use>
+  <svg class="icon-close" width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+  <path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" />
   </svg>
   `;
   closeModalBtn.addEventListener("click", closeModal);
 
-  // Modal Gallery Previous / Next buttons FIXME
-  btnPrevImg.classList.add("prev-btn");
-  btnPrevImg.innerHTML = `
-  <svg class="icon-carousel">
-    <use href="img/sprite.svg#icon-previous"></use>
-  </svg>
-  `;
-  galleryModal.querySelector(".product__img-box").appendChild(btnPrevImg);
+  document.body.appendChild(backdrop);
 
-  // btnNextImg
+  galleryModal.querySelector(".product__img-box").appendChild(btnPrevImg);
+  galleryModal.querySelector(".product__img-box").appendChild(btnNextImg);
 
   galleryModal.appendChild(closeModalBtn);
-  document.body.appendChild(backdrop);
   document.body.appendChild(galleryModal);
+
+  // Smooth show up Modal Gallery
+  setTimeout(() => {
+    galleryModal.style.visibility = "visible";
+    galleryModal.style.opacity = "1";
+    backdrop.style.visibility = "visible";
+    backdrop.style.opacity = "0.75";
+  }, 200);
 }
 
 // CLICK CURRENT PRODUCT IMAGE
 currentImage.addEventListener("click", showModalGallery);
 
-// CHANGING CURRENT PRODUCT IMAGE
-function changeCurrentImage(e) {
-  const { img, thmbs } = this;
-  console.log(thmbs);
+// CHANGE CURRENT IMAGE
+function changeCurrentImage(img, index, thmbs) {
+  img.setAttribute("src", `img/product/image-product-${index}.jpg`);
 
-  if (e.target.classList.contains("product__thmb")) {
-    const thmb = Number(e.target.dataset.thmb);
-    img.setAttribute("src", `img/product/image-product-${thmb}.jpg`);
-
-    thmbs
-      .querySelectorAll("[data-thmb]")
-      .forEach((thmb) => thmb.classList.remove("product__thmb--current"));
-    e.target.classList.add("product__thmb--current");
-  }
+  thmbs.querySelectorAll("[data-thmb]").forEach((thmb) => {
+    if (Number(thmb.dataset.thmb) === index) {
+      thmb.classList.add("product__thmb--current");
+    } else {
+      thmb.classList.remove("product__thmb--current");
+    }
+  });
 }
 
 // CLICK ON PRODUCT THUMBNAIL
-productThmbs.addEventListener(
-  "click",
-  changeCurrentImage.bind({ img: currentImage, thmbs: productThmbs })
-);
+productThmbs.addEventListener("click", (e) => {
+  if (e.target.classList.contains("product__thmb")) {
+    changeCurrentImage(
+      currentImage,
+      Number(e.target.dataset.thmb),
+      productThmbs
+    );
+  }
+});
 
 // --- CART ----
-// FILL CART WITH ITEMS
+// SSAVE CART ITEMS
 const saveCart = function () {
   localStorage.setItem("cart", JSON.stringify(cart));
 };
 
+// FILL CART WITH ITEMS
 const fillCart = function () {
   cartItems.innerHTML = "";
   cart.forEach((item) => {
@@ -188,8 +230,7 @@ const fillCart = function () {
       <button class="cart__item-delete-btn" id="cart-item-delete" onclick="deleteItem(${
         item.productId
       })">
-        <svg class="cart__item-delete-icon">
-          <use href="img/sprite.svg#icon-delete"></use>
+      <svg class="cart__item-delete-icon" width="14" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M0 2.625V1.75C0 1.334.334 1 .75 1h3.5l.294-.584A.741.741 0 0 1 5.213 0h3.571a.75.75 0 0 1 .672.416L9.75 1h3.5c.416 0 .75.334.75.75v.875a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 2.625Zm13 1.75V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 14.5V4.375C1 4.169 1.169 4 1.375 4h11.25c.206 0 .375.169.375.375ZM4.5 6.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Z" id="a"/></defs><use fill="#C3CAD9" fill-rule="nonzero" xlink:href="#a"/></svg>
         </svg>
       </button>`;
     cartItems.appendChild(newItem);
@@ -214,7 +255,7 @@ const updateCartNotification = function () {
   }
 };
 
-// DELETE CART ITEM FIXME - deleting item from array
+// DELETE CART ITEM
 const deleteItem = function (productId) {
   cart = cart.filter((item) => item.productId !== productId);
   saveCart();

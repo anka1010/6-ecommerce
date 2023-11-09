@@ -10,10 +10,12 @@
   &__img-box {
     position: relative;
     margin-bottom: 2.7rem;
-    border-radius: 1rem;
-    overflow: hidden;
 
     cursor: zoom-in;
+
+    img {
+      border-radius: 1rem;
+    }
   }
 
   &__thmbs {
@@ -67,7 +69,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: $transition-hover;
 
     .close-btn {
       position: absolute;
@@ -86,24 +90,33 @@
       position: absolute;
       width: 5rem;
       height: 5rem;
-      top: 0;
-      left: 0;
-      // transform: translate(-50%, -50%);
+      top: 50%;
       background-color: $color-white;
       border-radius: 50%;
-      fill: $color-neutral-dark;
+      stroke: $color-neutral-dark;
       transition: $transition-hover;
-      z-index: 15;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       &:hover {
-        fill: $color-primary;
+        stroke: $color-primary;
       }
+    }
+
+    .prev-btn {
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    .next-btn {
+      right: 0;
+      transform: translate(50%, -50%);
     }
 
     .icon-close,
     .icon-carousel {
-      width: 2rem;
-      height: 2rem;
       fill: inherit;
     }
   }
@@ -119,8 +132,9 @@
     width: 100vw;
     height: 100vh;
     background-color: $color-black;
-    filter: opacity(0.75);
-    z-index: 9;
+    visibility: hidden;
+    opacity: 0;
+    transition: $transition-hover;
   }
   //-- Modal Gallery
 
@@ -191,6 +205,10 @@
   }
 
   &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     transition: $transition-hover;
     cursor: pointer;
 
@@ -201,8 +219,6 @@
   }
 
   &__btn-icon {
-    height: 1rem;
-    width: 1rem;
     fill: $color-primary;
   }
 

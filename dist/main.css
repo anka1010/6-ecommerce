@@ -348,8 +348,6 @@ a {
   transition: all 0.2s;
 }
 .cta-icon {
-  width: 1.8rem;
-  height: 1.8rem;
   fill: hsl(0, 0%, 100%);
   margin-right: 1.5rem;
 }
@@ -368,9 +366,10 @@ a {
 .product__img-box {
   position: relative;
   margin-bottom: 2.7rem;
-  border-radius: 1rem;
-  overflow: hidden;
   cursor: zoom-in;
+}
+.product__img-box img {
+  border-radius: 1rem;
 }
 .product__thmbs {
   display: flex;
@@ -415,7 +414,9 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s;
 }
 .product__gallery--modal .close-btn {
   position: absolute;
@@ -432,22 +433,29 @@ a {
   position: absolute;
   width: 5rem;
   height: 5rem;
-  top: 0;
-  left: 0;
+  top: 50%;
   background-color: hsl(0, 0%, 100%);
   border-radius: 50%;
-  fill: hsl(220, 13%, 13%);
+  stroke: hsl(220, 13%, 13%);
   transition: all 0.2s;
-  z-index: 15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .product__gallery--modal .prev-btn:hover,
 .product__gallery--modal .next-btn:hover {
-  fill: hsl(26, 100%, 55%);
+  stroke: hsl(26, 100%, 55%);
+}
+.product__gallery--modal .prev-btn {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.product__gallery--modal .next-btn {
+  right: 0;
+  transform: translate(50%, -50%);
 }
 .product__gallery--modal .icon-close,
 .product__gallery--modal .icon-carousel {
-  width: 2rem;
-  height: 2rem;
   fill: inherit;
 }
 .product__gallery--modal .product__img-box {
@@ -460,8 +468,9 @@ a {
   width: 100vw;
   height: 100vh;
   background-color: hsl(0, 0%, 0%);
-  filter: opacity(0.75);
-  z-index: 9;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s;
 }
 .product__aside {
   padding-top: 5.5rem;
@@ -517,6 +526,9 @@ a {
   width: 4.9rem;
 }
 .product__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.2s;
   cursor: pointer;
 }
@@ -524,8 +536,6 @@ a {
   filter: opacity(70%);
 }
 .product__btn-icon {
-  height: 1rem;
-  width: 1rem;
   fill: hsl(26, 100%, 55%);
 }
 .product__count {
