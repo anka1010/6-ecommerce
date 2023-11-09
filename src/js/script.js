@@ -50,6 +50,7 @@ const priceText = document.querySelector("#price");
 // --- GALLERY ---
 const currentImage = document.querySelector("#current-image");
 const productGallery = document.querySelector("#product-gallery");
+const productThmbs = document.querySelector("#product-thmbs");
 
 // --- CART ---
 const cartNotification = document.querySelector("#cart-notification");
@@ -66,44 +67,42 @@ const btnAddToCart = document.querySelector("#btn-add");
 const countInput = document.querySelector("#count");
 
 ///////////////////////////////////
-// FUNCTIONS
+// FUNCTIONALITY
 ///////////////////////////////////
 // --- GALLERY ---
 // ZOOM IN GALLERY
-currentImage.addEventListener("click", () => {
+function showModalGallery() {
   const galleryModal = document.createElement("div");
   const backdrop = document.createElement("div");
+
   const closeModalBtn = document.createElement("button");
   const btnPrevImg = document.createElement("button");
   const btnNextImg = document.createElement("button");
 
+  // Modal Gallery block
+  galleryModal.innerHTML = productGallery.innerHTML;
+  galleryModal.classList.add("product__gallery--modal");
+  const currentImageModal = galleryModal.querySelector("#current-image");
+
+  // Modal Gallery Thumbnails
+  const productThmbsModal = galleryModal.querySelector("#product-thmbs");
+  productThmbsModal.addEventListener(
+    "click",
+    changeCurrentImage.bind({
+      img: currentImageModal,
+      thmbs: productThmbsModal,
+    })
+  );
+
+  // Close modal
   const closeModal = function () {
     document.body.removeChild(galleryModal);
     document.body.removeChild(backdrop);
   };
 
-  // Modal Gallery
-  galleryModal.innerHTML = productGallery.innerHTML;
-  galleryModal.classList.add("product__gallery--modal");
-  galleryModal
-    .querySelector("#current-image")
-    .setAttribute("id", "current-image--modal");
-
-  // Modal Gallery Thumbnails
-  const thmbs = galleryModal.querySelectorAll("#product-thmb");
-  thmbs.forEach((el) => el.setAttribute("id", "product-thmb--modal"));
-  thmbs.forEach((el, i) =>
-    el.setAttribute(
-      "onclick",
-      `changeThumbnail(${i}, 'current-image--modal', 'product-thmb--modal')`
-    )
-  );
-  document.body.appendChild(galleryModal);
-
   // Modal Gallery Background
   backdrop.classList.add("product__modal-background");
-  backdrop.addEventListener("click", () => closeModal());
-  document.body.appendChild(backdrop);
+  backdrop.addEventListener("click", closeModal);
 
   // Modal Gallery Close button
   closeModalBtn.classList.add("close-btn");
@@ -112,8 +111,7 @@ currentImage.addEventListener("click", () => {
     <use href="img/sprite.svg#icon-close"></use>
   </svg>
   `;
-  closeModalBtn.addEventListener("click", () => closeModal());
-  galleryModal.appendChild(closeModalBtn);
+  closeModalBtn.addEventListener("click", closeModal);
 
   // Modal Gallery Previous / Next buttons FIXME
   btnPrevImg.classList.add("prev-btn");
@@ -122,23 +120,39 @@ currentImage.addEventListener("click", () => {
     <use href="img/sprite.svg#icon-previous"></use>
   </svg>
   `;
-  galleryModal.querySelector("#current-image--modal").appendChild(btnPrevImg);
+  galleryModal.querySelector(".product__img-box").appendChild(btnPrevImg);
 
   // btnNextImg
-});
+
+  galleryModal.appendChild(closeModalBtn);
+  document.body.appendChild(backdrop);
+  document.body.appendChild(galleryModal);
+}
+
+// CLICK CURRENT PRODUCT IMAGE
+currentImage.addEventListener("click", showModalGallery);
 
 // CHANGING CURRENT PRODUCT IMAGE
-const changeThumbnail = function (thmb, image, thmbs) {
-  const thumbnails = document.querySelectorAll(`#${thmbs}`);
-  thumbnails.forEach((el, i) => {
-    if (i === thmb) el.classList.add("product__thmb--current");
-    else el.classList.remove("product__thmb--current");
-  });
+function changeCurrentImage(e) {
+  const { img, thmbs } = this;
+  console.log(thmbs);
 
-  document
-    .querySelector(`#${image}`)
-    ?.setAttribute("src", `img/product/image-product-${thmb + 1}.jpg`);
-};
+  if (e.target.classList.contains("product__thmb")) {
+    const thmb = Number(e.target.dataset.thmb);
+    img.setAttribute("src", `img/product/image-product-${thmb}.jpg`);
+
+    thmbs
+      .querySelectorAll("[data-thmb]")
+      .forEach((thmb) => thmb.classList.remove("product__thmb--current"));
+    e.target.classList.add("product__thmb--current");
+  }
+}
+
+// CLICK ON PRODUCT THUMBNAIL
+productThmbs.addEventListener(
+  "click",
+  changeCurrentImage.bind({ img: currentImage, thmbs: productThmbs })
+);
 
 // --- CART ----
 // FILL CART WITH ITEMS

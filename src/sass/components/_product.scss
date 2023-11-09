@@ -7,10 +7,11 @@
     gap: 11rem;
   }
 
-  &__img {
+  &__img-box {
     position: relative;
     margin-bottom: 2.7rem;
     border-radius: 1rem;
+    overflow: hidden;
 
     cursor: zoom-in;
   }
@@ -107,7 +108,7 @@
     }
   }
 
-  &__gallery--modal &__img {
+  &__gallery--modal &__img-box {
     cursor: auto;
   }
 
@@ -121,6 +122,7 @@
     filter: opacity(0.75);
     z-index: 9;
   }
+  //-- Modal Gallery
 
   &__aside {
     padding-top: 5.5rem;
