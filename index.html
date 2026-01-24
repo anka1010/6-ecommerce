@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/scss/main.scss" />
+    <link rel="icon" href="img/favicon-32x32.png" />
+    <title>E-commerce product page</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container">
+        <div class="header__row">
+          <!-- MOBILE NAVIGATION BUTTON -->
+          <!-- <div class="header__mibile-nav"></div> -->
+
+          <!-- LOGO & NAVIGATION -->
+          <div class="header__row--left">
+            <!-- LOGO -->
+            <a href="#!" class="logo"><img src="img/logo.svg" alt="Logo" /></a>
+
+            <!-- NAVIGATION -->
+            <nav class="nav">
+              <ul class="nav__list">
+                <li><a class="nav__item" href="#!">Collections</a></li>
+                <li><a class="nav__item" href="#!">Men</a></li>
+                <li><a class="nav__item" href="#!">Women</a></li>
+                <li><a class="nav__item" href="#!">About</a></li>
+                <li><a class="nav__item" href="#!">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- CART & USER PROFILE -->
+          <div class="header__row--right">
+            <div class="cart__box">
+              <!-- CART MENU ITEM -->
+              <button class="cart__btn">
+                <svg
+                  class="cart__icon"
+                  width="22"
+                  height="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                  />
+                </svg>
+                <span
+                  class="cart__notification invisible"
+                  id="cart-notification"
+                  >&nbsp;</span
+                >
+              </button>
+
+              <!-- CART -->
+              <div class="cart">
+                <p class="cart__caption">Cart</p>
+
+                <div class="cart__container">
+                  <p class="cart__empty" id="cart-empty">Your cart is empty.</p>
+                  <div class="cart__items invisible" id="cart-items">
+                    <!-- 
+                    CART ITEMS    
+                  --></div>
+                  <button class="btn btn--cta invisible" id="cart-btn-cta">
+                    Checkout
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- USER PROFILE MENU ITEM -->
+            <button class="user-profile__btn">
+              <img
+                class="user-profile__img"
+                src="img/user-avatar.png"
+                alt="User avatar"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- PRODUCT -->
+    <main class="product">
+      <div class="container container--sm">
+        <section class="product__container">
+          <!-- PRODUCT GALLERY -->
+          <div id="product-gallery">
+            <!-- PRODUCT MAIN IMAGE -->
+            <div class="product__img-box">
+              <img
+                src="img/product/image-product-1.jpg"
+                alt="Product photo"
+                id="current-image"
+              />
+            </div>
+
+            <!-- PRODUCT THUMBNAILS -->
+            <div class="product__thmbs" id="product-thmbs">
+              <div class="product__thmb product__thmb--current" data-thmb="1">
+                <img
+                  src="img/product/image-product-1-thumbnail.jpg"
+                  alt="Product thumbnail photo"
+                />
+              </div>
+              <div class="product__thmb" data-thmb="2">
+                <img
+                  src="img/product/image-product-2-thumbnail.jpg"
+                  alt="Product thumbnail photo"
+                />
+              </div>
+              <div class="product__thmb" data-thmb="3">
+                <img
+                  src="img/product/image-product-3-thumbnail.jpg"
+                  alt="Product thumbnail photo"
+                />
+              </div>
+              <div class="product__thmb" data-thmb="4">
+                <img
+                  src="img/product/image-product-4-thumbnail.jpg"
+                  alt="Product thumbnail photo"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT INFORMATION -->
+          <div class="product__aside">
+            <h3 class="u-h3 product__brand" id="brand">Brand</h3>
+            <h1 class="u-h1 product__name" id="name">Name</h1>
+            <p class="product__description" id="description">Description</p>
+            <div class="product__price-box">
+              <p class="u-h2 product__price--final" id="final-price">$</p>
+              <p class="u-h3 product__discount" id="discount">%</p>
+            </div>
+            <p class="u-h3 product__price" id="price">$</p>
+
+            <!-- ADD TO CART -->
+            <div class="product__add-to-cart">
+              <!-- PRODUCT COUNTER -->
+              <div class="product__counter">
+                <button class="product__btn" id="btn-decrease">
+                  <svg
+                    class="product__btn-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="3.33"
+                  >
+                    <path
+                      d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z"
+                    />
+                  </svg>
+                </button>
+                <input class="product__count" id="count" placeholder="0" />
+                <button class="product__btn" id="btn-increase">
+                  <svg
+                    class="product__btn-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                  >
+                    <path
+                      d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <button class="btn btn--cta" id="btn-add">
+                <svg
+                  class="cta-icon"
+                  width="22"
+                  height="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                  />
+                </svg>
+                <span>Add to cart</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="/src/js/main.js"></script>
+  </body>
+</html>

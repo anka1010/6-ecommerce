@@ -1,0 +1,234 @@
+.product {
+  padding-top: 9rem;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11rem;
+  }
+
+  &__img-box {
+    position: relative;
+    margin-bottom: 2.7rem;
+
+    cursor: zoom-in;
+
+    img {
+      border-radius: 1rem;
+    }
+  }
+
+  &__thmbs {
+    display: flex;
+    justify-content: center;
+    gap: 2.7rem;
+  }
+
+  &__thmb {
+    position: relative;
+    width: 7.8rem;
+    height: 7.8rem;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: filter 0.2s;
+
+    &::after {
+      content: "\A";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: $color-white;
+      opacity: 0;
+      transition: $transition-hover;
+    }
+
+    &:hover::after {
+      opacity: 0.3;
+    }
+
+    &--current {
+      outline: 2px solid $color-primary;
+      &::after {
+        opacity: 0.6;
+      }
+
+      &:hover::after {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  // Modal Gallery
+  &__gallery--modal {
+    width: 49rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: $transition-hover;
+
+    .close-btn {
+      position: absolute;
+      top: -3.5rem;
+      right: 0;
+      fill: $color-white;
+      transition: $transition-hover;
+
+      &:hover {
+        fill: $color-primary;
+      }
+    }
+
+    .prev-btn,
+    .next-btn {
+      position: absolute;
+      width: 5rem;
+      height: 5rem;
+      top: 50%;
+      background-color: $color-white;
+      border-radius: 50%;
+      stroke: $color-neutral-dark;
+      transition: $transition-hover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        stroke: $color-primary;
+      }
+    }
+
+    .prev-btn {
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    .next-btn {
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+
+    .icon-close,
+    .icon-carousel {
+      fill: inherit;
+    }
+  }
+
+  &__gallery--modal &__img-box {
+    cursor: auto;
+  }
+
+  &__modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-black;
+    visibility: hidden;
+    opacity: 0;
+    transition: $transition-hover;
+  }
+  //-- Modal Gallery
+
+  &__aside {
+    padding-top: 5.5rem;
+  }
+
+  &__brand {
+    color: $color-primary;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  &__name {
+    color: $color-neutral-dark;
+    margin-bottom: 4rem;
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+
+  &__price-box {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.2rem;
+  }
+
+  &__price--final {
+    color: $color-neutral-dark;
+  }
+
+  &__discount {
+    color: $color-primary;
+    background-color: $color-primary-light;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.6rem;
+  }
+
+  &__price {
+    text-decoration: line-through;
+    color: $color-neutral-light;
+    margin-bottom: 3.5rem;
+  }
+
+  &__add-to-cart {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__counter {
+    background-color: $color-neutral-light-1;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__btn,
+  &__count {
+    height: $control-height;
+    width: $control-height;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: $transition-hover;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      filter: opacity(70%);
+    }
+  }
+
+  &__btn-icon {
+    fill: $color-primary;
+  }
+
+  &__count {
+    font-weight: $bold;
+    color: $color-neutral-dark;
+    text-align: center;
+
+    &::placeholder {
+      color: $color-neutral-light;
+    }
+  }
+}

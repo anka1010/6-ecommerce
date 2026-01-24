@@ -1,0 +1,18 @@
+// CTA
+.cta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: $transition-hover;
+
+  &-icon {
+    fill: $color-white;
+    margin-right: 1.5rem;
+  }
+
+  &:hover {
+    filter: opacity(0.7);
+  }
+}

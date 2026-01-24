@@ -1,0 +1,19 @@
+// NAVIGATION
+.nav {
+  &__list {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  &__item {
+    padding-bottom: 3.6rem;
+    border-bottom: 4px solid transparent;
+    transition: $transition-hover;
+
+    &:hover {
+      border-bottom: 4px solid $color-primary;
+      color: $color-neutral-dark;
+    }
+  }
+}
